@@ -1,10 +1,10 @@
-
+"use strict";
 
 var listaSpesa = [
   "cacao",
   "burro",
   "pane",
-]
+];
 
 for (var i = 0; i < listaSpesa.length; i++) {
   // clono il template
@@ -20,17 +20,25 @@ $(".delete_list").click(function () {
   $(this).parent().remove();
 });
 
+// aggiungo gli elementi alla lista
+$("#add_list").keydown(function (e) {
 
-$(".add_list").keydown(function (e) {
-
-  if (e.wich == 13) {
+  if (e.which == 13) {
     var testo = $(this).val();
-    // clono il template
-    var template = $(".template li").clone();
-    // aggiungo le info al template
-    template.prepend(testo);
-    // aggiungo il template alla listaSpesa
-    $(".lista-spesa").append(template);
-    $(this).val("");
+
+    if (testo != "" ) {
+
+      // clono il template
+      var template = $(".template li").clone();
+      // aggiungo le info al template
+      template.prepend(testo);
+      // aggiungo il template alla listaSpesa
+      $(".lista-spesa").append(template);
+      // e lo inserisco nell'array
+      listaSpesa.push($(this).val());
+      // azzero il valore dell'input dell'utente
+      $(this).val("");
+      console.log(listaSpesa);
+    }
   }
 });
