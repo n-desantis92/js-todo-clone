@@ -15,10 +15,6 @@ for (var i = 0; i < listaSpesa.length; i++) {
   $(".lista-spesa").append(template);
 }
 
-// cancello gli elementi della lista al click
-$(".delete_list").click(function () {
-  $(this).parent().remove();
-});
 
 // aggiungo gli elementi alla lista
 $("#add_list").keydown(function (e) {
@@ -42,3 +38,13 @@ $("#add_list").keydown(function (e) {
     }
   }
 });
+
+
+// cancello gli elementi della lista al click
+// $(".delete_list").click(function () {
+//   $(this).parent().remove();
+// });
+
+$(".lista-spesa").on("click", "delete_list", function () {
+  $(this).parent().remove();
+} );
